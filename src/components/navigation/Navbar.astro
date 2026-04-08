@@ -1,0 +1,45 @@
+---
+---
+<nav class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-bold text-[#065f46] flex items-center gap-2">
+      <span class="bg-[#065f46] text-white p-2 rounded-lg">FR</span>
+      <span class="hidden md:inline">Tafsir & Bahasa Arab</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="/" class="text-gray-700 hover:text-[#065f46] font-medium transition">Home</a>
+
+      <!-- Dropdown: Menu Utama Bahasa Arab -->
+      <div class="relative group">
+        <button class="flex items-center gap-1 text-gray-700 group-hover:text-[#065f46] font-medium transition">
+          Bahasa Arab
+          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <!-- Mega Menu Dropdown -->
+        <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
+          <div class="p-4">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Durusullughah</h3>
+            <div class="grid gap-2">
+              <a href="/durusullughah/jilid-1" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 1</a>
+              <a href="/durusullughah/jilid-2" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 2</a>
+              <a href="/durusullughah/jilid-3" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 3</a>
+              <a href="/durusullughah/jilid-4" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 4</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/tafsir" class="text-gray-700 hover:text-[#065f46] font-medium transition">Tafsir</a>
+      <a href="/about" class="bg-emerald-50 text-[#065f46] px-4 py-2 rounded-full text-sm font-semibold">Tentang Fuad</a>
+    </div>
+
+    <!-- Mobile Hamburger (Simplified) -->
+    <button class="lg:hidden p-2 text-gray-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </button>
+  </div>
+</nav>

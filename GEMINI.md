@@ -1,20 +1,43 @@
 # GEMINI.md
 
 ## Project Overview
-**pembelajaran-bahasa-arab-blog** is a web project built using [Astro](https://astro.build/) (v6.1.5). Based on the project name, it is intended to be a blog or educational platform focused on Arabic language learning (Pembelajaran Bahasa Arab).
+**Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman** is a specialized learning management system designed to streamline the study of Arabic and Tafsir for **santri** (students). The project focuses on converting complex, deeply nested educational content into a frictionless digital experience.
 
-The project is currently based on the **Astro Basics Starter Kit**, featuring:
-- **Framework:** Astro 6.x
-- **Language:** TypeScript (Strict mode enabled)
-- **Styling:** Scoped CSS within Astro components
-- **Layouts:** Centralized `Layout.astro` for HTML structure
+### Core Objectives
+- **Frictionless Learning:** Ensure students spend more time studying and less time navigating.
+- **Structural Clarity:** Resolve the challenge of complex "Durusullughah" hierarchies (Jilid 1-4) through intuitive UI patterns.
+- **Professional Identity:** Reflect the scholarly nature of the content through a modern Islamic aesthetic.
+
+## Design Principles
+- **Visual Hierarchy:** Essential lesson access is always prioritized. Primary navigation paths are clearly distinguished from secondary utilities.
+- **Accessibility:** High-contrast typography and large touch targets ensure the platform is usable by students of all ages, from children to adults.
+- **Consistent Iconography:** Use of subtle, Arabic-themed geometric patterns and icons to reinforce the cultural and educational context.
+- **Mobile-First Responsiveness:** Leveraging Tailwind CSS to ensure a seamless experience across smartphones, tablets, and desktops, acknowledging that many santri study on mobile devices.
+- **Islamic Modernism:** A clean, minimalist aesthetic using **Emerald Green (#065f46)** for authority, **Gold (#d4af37)** for highlights, and ample white space for focus.
+
+## Navigation Architecture
+The system employs a simplified nested structure to manage complexity:
+- **Root**
+  - **Menu Utama Bahasa Arab**
+    - **Durusullughah**
+      - Jilid 1
+      - Jilid 2
+      - Jilid 3
+      - Jilid 4
+  - **Tafsir**
+  - **Resources**
+
+## Tech Stack
+- **Framework:** [Astro](https://astro.build/) (v6.1.5)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) for utility-first, responsive design.
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict mode) for robust and maintainable code.
+- **Architecture:** Component-based architecture using Astro's island architecture where necessary.
 
 ## Project Structure
-- `src/pages/`: Contains the routes of the application (e.g., `index.astro`).
-- `src/components/`: Reusable UI components (e.g., `Welcome.astro`).
-- `src/layouts/`: Shared layout components (e.g., `Layout.astro`).
-- `src/assets/`: Static assets like images or SVGs used within components.
-- `public/`: Static files served directly (favicons, etc.).
+- `src/pages/`: Main entry points (Home, Jilid-specific pages).
+- `src/components/navigation/`: Navbar, Sidebar, and Breadcrumb components.
+- `src/components/ui/`: Styled buttons, cards, and decorative elements.
+- `src/layouts/`: Base layout with the Emerald theme and global navigation.
 
 ## Building and Running
 
@@ -25,17 +48,16 @@ All commands are executed from the project root using `npm`:
 | `npm run dev` | Starts the local development server at `http://localhost:4321` |
 | `npm run build` | Builds the production site to the `dist/` directory |
 | `npm run preview` | Previews the production build locally |
-| `npm run astro ...` | Executes Astro CLI commands (e.g., `astro add`, `astro check`) |
+| `npm run astro ...` | Executes Astro CLI commands |
 
 ## Development Conventions
-
-- **Component-Driven Development:** Use `.astro` components for UI logic and templating.
-- **TypeScript:** Strict type checking is enabled via `tsconfig.json` (`astro/tsconfigs/strict`).
-- **Static Assets:** Prefer placing images/icons in `src/assets/` if they need optimization, or `public/` for raw static files.
-- **Styling:** Use scoped `<style>` tags within components to maintain modularity.
+- **User-Centric Design:** Prioritize the santri's experience in every UI decision.
+- **Structured Content:** Maintain a clear and logical folder structure for all learning materials.
+- **Responsive Navigation:** Ensure menus and submenus work seamlessly across all device sizes.
+- **Tailwind for Styling:** Use Tailwind's utility classes for all styling needs to ensure consistency.
 
 ## Roadmap / TODO
-- [ ] Initialize content collections for blog posts.
-- [ ] Implement Arabic language support (RTL direction, specific fonts).
-- [ ] Create custom components for Arabic grammar/vocabulary lessons.
-- [ ] Configure deployment (e.g., Vercel, Netlify, or GitHub Pages).
+- [x] Define project vision and design principles in GEMINI.md.
+- [ ] Integrate Tailwind CSS into the Astro project.
+- [ ] Design and implement the primary navigation system (Sidebar/Mega Menu) for complex hierarchies.
+- [ ] Create specialized components for Arabic text display (RTL support, specific typography).
