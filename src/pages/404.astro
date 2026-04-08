@@ -1,3 +1,35 @@
-<div>
-    asdasjd
-</div>
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<Layout title="404: Halaman Tidak Ditemukan">
+	<main class="min-h-[80vh] flex items-center justify-center py-20 bg-gray-50 relative overflow-hidden">
+		<!-- Decorative Background Pattern -->
+		<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#065f46 2px, transparent 2px); background-size: 30px 30px;"></div>
+		
+		<div class="container mx-auto px-6 relative z-10 text-center">
+			<div class="w-24 h-24 bg-emerald-50 text-[#065f46] rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm">
+				<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+				</svg>
+			</div>
+			
+			<h1 class="text-5xl lg:text-7xl font-bold text-gray-900 mb-4">404</h1>
+			<h2 class="text-2xl lg:text-3xl font-bold text-[#065f46] mb-6">Halaman Tidak Ditemukan</h2>
+			
+			<p class="text-gray-600 max-w-md mx-auto mb-10 text-lg leading-relaxed">
+				Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin tautan tersebut telah dipindahkan atau dihapus.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row justify-center gap-4">
+				<Button href="/" variant="primary">
+					Kembali ke Beranda
+				</Button>
+				<Button href="/#belajar" variant="outline">
+					Lihat Kurikulum
+				</Button>
+			</div>
+		</div>
+	</main>
+</Layout>
