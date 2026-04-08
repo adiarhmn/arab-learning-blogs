@@ -1,0 +1,35 @@
+---
+import Button from './ui/Button.astro';
+
+const levels = [
+  { id: 1, title: 'Jilid 1', desc: 'Dasar-dasar Bahasa Arab, kosa kata harian, dan percakapan sederhana.' },
+  { id: 2, title: 'Jilid 2', desc: 'Pendalaman tata bahasa (Nahwu & Sorof) dan perluasan struktur kalimat.' },
+  { id: 3, title: 'Jilid 3', desc: 'Pemahaman teks literatur Arab yang lebih kompleks dan analisis kalimat.' },
+  { id: 4, title: 'Jilid 4', desc: 'Studi tingkat lanjut mencakup Balaghah dasar dan penerapan kaidah bahasa.' }
+];
+---
+<section class="py-16 bg-gray-50" id="belajar">
+  <div class="container mx-auto px-6 text-center mb-12">
+    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Kurikulum Durusullughah</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+      Akses cepat ke setiap tingkatan materi Durusullughah. Pilih jilid yang sesuai dengan progres belajar Anda.
+    </p>
+  </div>
+
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {levels.map((level) => (
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-[#d4af37] transition-all group hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
+        <div class="w-14 h-14 bg-emerald-50 text-[#065f46] rounded-2xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-[#065f46] group-hover:text-white transition-all duration-300">
+          {level.id}
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">{level.title}</h3>
+        <p class="text-gray-500 mb-8 leading-relaxed flex-grow">
+          {level.desc}
+        </p>
+        <Button href={`/durusullughah/jilid-${level.id}`} variant="outline" class="w-full text-sm py-3 rounded-2xl">
+          Buka Materi
+        </Button>
+      </div>
+    ))}
+  </div>
+</section>

@@ -4,8 +4,8 @@
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
     <a href="/" class="text-2xl font-bold text-[#065f46] flex items-center gap-2">
-      <span class="bg-[#065f46] text-white p-2 rounded-lg">FR</span>
-      <span class="hidden md:inline">Tafsir & Bahasa Arab</span>
+      <span class="bg-[#065f46] text-white p-2 rounded-lg text-lg">FR</span>
+      <span class="hidden md:inline text-xl tracking-tight">Tafsir & Bahasa Arab</span>
     </a>
 
     <!-- Desktop Menu -->
@@ -22,8 +22,8 @@
         <!-- Mega Menu Dropdown -->
         <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
           <div class="p-4">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Durusullughah</h3>
-            <div class="grid gap-2">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 px-2">Durusullughah</h3>
+            <div class="grid gap-1">
               <a href="/durusullughah/jilid-1" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 1</a>
               <a href="/durusullughah/jilid-2" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 2</a>
               <a href="/durusullughah/jilid-3" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 3</a>
@@ -34,12 +34,76 @@
       </div>
 
       <a href="/tafsir" class="text-gray-700 hover:text-[#065f46] font-medium transition">Tafsir</a>
-      <a href="/about" class="bg-emerald-50 text-[#065f46] px-4 py-2 rounded-full text-sm font-semibold">Tentang Fuad</a>
+      <a href="/about" class="bg-emerald-50 text-[#065f46] px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-100 transition">Tentang Fuad</a>
     </div>
 
-    <!-- Mobile Hamburger (Simplified) -->
-    <button class="lg:hidden p-2 text-gray-600">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    <!-- Mobile Toggle -->
+    <button id="menu-toggle" class="lg:hidden p-2 text-gray-600 hover:text-[#065f46] focus:outline-none transition-colors" aria-label="Toggle Menu">
+      <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
   </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl z-40 overflow-y-auto max-h-[calc(100vh-80px)]">
+    <div class="flex flex-col p-6 gap-2">
+      <a href="/" class="text-gray-800 font-semibold py-3 border-b border-gray-50 flex items-center justify-between">
+        Home
+      </a>
+      
+      <!-- Mobile Accordion for Bahasa Arab -->
+      <div class="flex flex-col">
+        <button id="mobile-durus-toggle" class="flex justify-between items-center text-gray-800 font-semibold py-3 border-b border-gray-50 focus:outline-none">
+          Bahasa Arab
+          <svg id="mobile-arrow" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div id="mobile-durus-content" class="hidden flex-col bg-gray-50 rounded-xl mt-2 overflow-hidden transition-all duration-300">
+          <a href="/durusullughah/jilid-1" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 1</a>
+          <a href="/durusullughah/jilid-2" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 2</a>
+          <a href="/durusullughah/jilid-3" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 3</a>
+          <a href="/durusullughah/jilid-4" class="px-5 py-3 text-gray-600 hover:text-[#065f46]">Durusullughah Jilid 4</a>
+        </div>
+      </div>
+
+      <a href="/tafsir" class="text-gray-800 font-semibold py-3 border-b border-gray-50">Tafsir</a>
+      <a href="/about" class="text-[#065f46] font-bold py-4 text-center bg-emerald-50 rounded-xl mt-4">Tentang Fuad Rahman</a>
+    </div>
+  </div>
 </nav>
+
+<script>
+  function setupNavbar() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    const durusToggle = document.getElementById('mobile-durus-toggle');
+    const durusContent = document.getElementById('mobile-durus-content');
+    const durusArrow = document.getElementById('mobile-arrow');
+
+    if (menuToggle && mobileMenu && menuIcon && closeIcon) {
+      menuToggle.onclick = () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+        // Prevent body scroll when menu is open
+        document.body.classList.toggle('overflow-hidden');
+      };
+    }
+
+    if (durusToggle && durusContent && durusArrow) {
+      durusToggle.onclick = () => {
+        durusContent.classList.toggle('hidden');
+        durusContent.classList.toggle('flex');
+        durusArrow.classList.toggle('rotate-180');
+      };
+    }
+  }
+
+  // Run on initial load
+  setupNavbar();
+
+  // Run on view transitions if enabled
+  document.addEventListener('astro:after-swap', setupNavbar);
+</script>
