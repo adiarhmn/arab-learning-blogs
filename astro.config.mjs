@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // LOCAL SITE
 // const site = 'http://localhost:4323/';
-const site = 'https://adiarhmn.github.io/';
+const site = 'https://fuadrahman.vortala.my.id/';
 
 // https://astro.build/config
 export default defineConfig({
