@@ -1,109 +1,185 @@
 ---
+const navItems = [
+  { label: 'Home', href: '/' },
+  {
+    label: 'Bahasa Arab',
+    children: [
+      {
+        label: 'Durusullughah',
+        children: [
+          { label: 'Jilid 1', href: '/durusullughah/jilid-1' },
+          { label: 'Jilid 2', href: '/durusullughah/jilid-2' },
+          { label: 'Jilid 3', href: '/durusullughah/jilid-3' },
+          { label: 'Jilid 4', href: '/durusullughah/jilid-4' },
+        ]
+      },
+      {
+        label: 'Jurmiyyah',
+        children: [
+          { label: 'Matan Jurmiyyah', href: '/jurmiyyah/matan' },
+          { label: 'Tuhfatus Saniyah', href: '/jurmiyyah/tuhfatus-saniyah' },
+        ]
+      }
+    ]
+  },
+  { label: 'Tafsir', href: '/tafsir' },
+  { label: 'Tentang Fuad', href: '/about', variant: 'button' }
+];
 ---
-<nav class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+<nav class="sticky top-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-6 h-20 flex justify-between items-center relative z-[110] bg-white">
     <!-- Logo -->
-    <a href="/" class="text-2xl font-bold text-[#065f46] flex items-center gap-2">
-      <span class="bg-[#065f46] text-white p-2 rounded-lg text-lg">FR</span>
-      <span class="hidden md:inline text-xl tracking-tight">Tafsir & Bahasa Arab</span>
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="bg-[#065f46] text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-emerald-900/20 shadow-lg group-hover:scale-110 transition-transform">FR</div>
+      <div class="flex flex-col">
+        <span class="text-lg font-bold text-[#0f172a] leading-none">Fuad Rahman</span>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-[#065f46] font-bold">Bahasa Arab & Tafsir</span>
+      </div>
     </a>
 
-    <!-- Desktop Menu -->
-    <div class="hidden lg:flex items-center gap-8">
-      <a href="/" class="text-gray-700 hover:text-[#065f46] font-medium transition">Home</a>
-
-      <!-- Dropdown: Menu Utama Bahasa Arab -->
-      <div class="relative group">
-        <button class="flex items-center gap-1 text-gray-700 group-hover:text-[#065f46] font-medium transition">
-          Bahasa Arab
-          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-
-        <!-- Mega Menu Dropdown -->
-        <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
-          <div class="p-4">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 px-2">Durusullughah</h3>
-            <div class="grid gap-1">
-              <a href="/durusullughah/jilid-1" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 1</a>
-              <a href="/durusullughah/jilid-2" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 2</a>
-              <a href="/durusullughah/jilid-3" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 3</a>
-              <a href="/durusullughah/jilid-4" class="p-2 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-[#065f46] transition">Jilid 4</a>
-            </div>
-          </div>
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-1">
+      {navItems.map((item) => (
+        <div class="relative group px-1">
+          {item.children ? (
+            <>
+              <button class="flex items-center gap-1.5 px-4 py-2 text-slate-600 font-medium hover:text-[#065f46] hover:bg-emerald-50 rounded-lg transition-all">
+                {item.label}
+                <svg class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 p-2">
+                {item.children.map((child) => (
+                  <div class="relative group/sub">
+                    {child.children ? (
+                      <>
+                        <div class="flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-600 hover:text-[#065f46] hover:bg-emerald-50 cursor-pointer transition-colors">
+                          <span class="font-medium">{child.label}</span>
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div class="absolute left-full top-0 ml-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 translate-x-2 group-hover/sub:translate-x-0 p-2">
+                          {child.children.map((grandchild) => (
+                            <a href={grandchild.href} class="block px-3 py-2.5 rounded-lg text-slate-600 font-medium hover:text-[#065f46] hover:bg-emerald-50 transition-colors">
+                              {grandchild.label}
+                            </a>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <a href={child.href} class="block px-3 py-2.5 rounded-lg text-slate-600 font-medium hover:text-[#065f46] hover:bg-emerald-50 transition-colors">
+                        {child.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <a 
+              href={item.href} 
+              class={item.variant === 'button' 
+                ? "ml-4 bg-[#065f46] text-white px-5 py-2.5 rounded-xl font-bold hover:bg-[#044a37] transition-colors shadow-lg shadow-emerald-900/10" 
+                : "px-4 py-2 text-slate-600 font-medium hover:text-[#065f46] hover:bg-emerald-50 rounded-lg transition-all"}
+            >
+              {item.label}
+            </a>
+          )}
         </div>
-      </div>
-
-      <a href="/tafsir" class="text-gray-700 hover:text-[#065f46] font-medium transition">Tafsir</a>
-      <a href="/about" class="bg-emerald-50 text-[#065f46] px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-100 transition">Tentang Fuad</a>
+      ))}
     </div>
 
     <!-- Mobile Toggle -->
-    <button id="menu-toggle" class="lg:hidden p-2 text-gray-600 hover:text-[#065f46] focus:outline-none transition-colors" aria-label="Toggle Menu">
-      <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-      <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <button id="mobile-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#065f46] transition-colors">
+      <svg id="icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
   </div>
 
-  <!-- Mobile Menu Drawer -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl z-40 overflow-y-auto max-h-[calc(100vh-80px)]">
-    <div class="flex flex-col p-6 gap-2">
-      <a href="/" class="text-gray-800 font-semibold py-3 border-b border-gray-50 flex items-center justify-between">
-        Home
-      </a>
-      
-      <!-- Mobile Accordion for Bahasa Arab -->
-      <div class="flex flex-col">
-        <button id="mobile-durus-toggle" class="flex justify-between items-center text-gray-800 font-semibold py-3 border-b border-gray-50 focus:outline-none">
-          Bahasa Arab
-          <svg id="mobile-arrow" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div id="mobile-durus-content" class="hidden flex-col bg-gray-50 rounded-xl mt-2 overflow-hidden transition-all duration-300">
-          <a href="/durusullughah/jilid-1" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 1</a>
-          <a href="/durusullughah/jilid-2" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 2</a>
-          <a href="/durusullughah/jilid-3" class="px-5 py-3 text-gray-600 hover:text-[#065f46] border-b border-white">Durusullughah Jilid 3</a>
-          <a href="/durusullughah/jilid-4" class="px-5 py-3 text-gray-600 hover:text-[#065f46]">Durusullughah Jilid 4</a>
-        </div>
+  <!-- Mobile Menu: Dropdown Style -->
+  <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full h-[calc(100vh-80px)] bg-white border-t border-gray-100 overflow-y-auto z-[105] shadow-2xl">
+    <div class="p-6 pb-20">
+      <div class="flex flex-col gap-4">
+        {navItems.map((item) => (
+          <div class="border-b border-slate-50 last:border-0 pb-4">
+            {item.children ? (
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest px-2">{item.label}</span>
+                <div class="mt-4 space-y-6">
+                  {item.children.map((child) => (
+                    <div class="px-2">
+                       <span class="block text-slate-900 font-bold mb-3 text-sm">{child.label}</span>
+                       <div class="grid grid-cols-2 gap-2">
+                         {child.children?.map((grandchild) => (
+                           <a href={grandchild.href} class="bg-slate-50 p-4 rounded-xl text-slate-700 text-sm font-medium active:bg-emerald-50 active:text-[#065f46] border border-transparent active:border-emerald-100 transition-all">
+                             {grandchild.label}
+                           </a>
+                         ))}
+                         {!child.children && (
+                           <a href={child.href} class="col-span-2 bg-slate-50 p-4 rounded-xl text-slate-700 text-sm font-medium active:bg-emerald-50 active:text-[#065f46] border border-transparent active:border-emerald-100 transition-all">
+                             {child.label}
+                           </a>
+                         )}
+                       </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a href={item.href} class={`block py-2 text-lg font-bold px-2 ${item.variant === 'button' ? 'text-[#065f46]' : 'text-slate-900'}`}>
+                {item.label}
+              </a>
+            )}
+          </div>
+        ))}
       </div>
 
-      <a href="/tafsir" class="text-gray-800 font-semibold py-3 border-b border-gray-50">Tafsir</a>
-      <a href="/about" class="text-[#065f46] font-bold py-4 text-center bg-emerald-50 rounded-xl mt-4">Tentang Fuad Rahman</a>
+      <div class="mt-8 p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
+        <p class="text-sm text-emerald-800 font-bold mb-1">Pusat Belajar Fuad Rahman</p>
+        <p class="text-xs text-emerald-600 leading-relaxed">Akses semua materi Durusullughah dan Jurmiyyah dengan mudah.</p>
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
-  function setupNavbar() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
+  function initNav() {
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
 
-    const durusToggle = document.getElementById('mobile-durus-toggle');
-    const durusContent = document.getElementById('mobile-durus-content');
-    const durusArrow = document.getElementById('mobile-arrow');
-
-    if (menuToggle && mobileMenu && menuIcon && closeIcon) {
-      menuToggle.onclick = () => {
-        mobileMenu.classList.toggle('hidden');
-        menuIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-        // Prevent body scroll when menu is open
-        document.body.classList.toggle('overflow-hidden');
+    if (toggle && menu && iconOpen && iconClose) {
+      toggle.onclick = (e) => {
+        e.preventDefault();
+        const isHidden = menu.classList.contains('hidden');
+        
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
       };
-    }
 
-    if (durusToggle && durusContent && durusArrow) {
-      durusToggle.onclick = () => {
-        durusContent.classList.toggle('hidden');
-        durusContent.classList.toggle('flex');
-        durusArrow.classList.toggle('rotate-180');
-      };
+      // Close menu on link click
+      const links = menu.querySelectorAll('a');
+      links.forEach(link => {
+        link.onclick = () => {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          document.body.style.overflow = '';
+        };
+      });
     }
   }
 
-  // Run on initial load
-  setupNavbar();
-
-  // Run on view transitions if enabled
-  document.addEventListener('astro:after-swap', setupNavbar);
+  initNav();
+  document.addEventListener('astro:after-swap', initNav);
 </script>
