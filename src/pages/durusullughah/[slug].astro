@@ -18,25 +18,25 @@ const lessons = {
         title: 'Durusullughah Jilid 1',
         description:
             'Pelajari dasar-dasar bahasa Arab dari nol. Jilid ini fokus pada pengenalan kata benda (Isim), kata tunjuk, dan struktur kalimat sederhana yang digunakan sehari-hari.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLink: 'https://www.youtube.com/embed/videoseries?list=PL4vcbFp1wTy8ecYL2oJzjU4s0Qr5YNYnc',
     },
     'jilid-2': {
         title: 'Durusullughah Jilid 2',
         description:
             "Melanjutkan pemahaman tata bahasa Arab dengan fokus pada kata kerja (Fi'il), perubahan bentuk kata (Shorof), dan kosa kata yang lebih luas.",
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
     },
     'jilid-3': {
         title: 'Durusullughah Jilid 3',
         description:
             'Memasuki tahap menengah di mana santri mulai belajar menganalisis kalimat yang lebih panjang dan teks-teks literatur Arab dasar.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
     },
     'jilid-4': {
         title: 'Durusullughah Jilid 4',
         description:
             'Tahap lanjut yang mempersiapkan santri untuk memahami teks-teks klasik, kitab tafsir, dan dasar-dasar ilmu Balaghah.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
     },
 };
 
@@ -75,7 +75,7 @@ if (!lesson) {
                 <!-- Video Container -->
                 <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
                     <div class="aspect-video">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/8e5Nmpy8Zmw" allowfullscreen>
+                        <iframe class="w-full h-full" src={lesson.ytLink} allowfullscreen>
                         </iframe>
                     </div>
                 </div>
