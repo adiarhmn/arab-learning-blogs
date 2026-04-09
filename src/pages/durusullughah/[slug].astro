@@ -18,25 +18,33 @@ const lessons = {
         title: 'Durusullughah Jilid 1',
         description:
             'Pelajari dasar-dasar bahasa Arab dari nol. Jilid ini fokus pada pengenalan kata benda (Isim), kata tunjuk, dan struktur kalimat sederhana yang digunakan sehari-hari.',
-        ytLink: 'https://www.youtube.com/embed/videoseries?list=PL4vcbFp1wTy8ecYL2oJzjU4s0Qr5YNYnc',
+        ytLink: [
+            'https://www.youtube.com/embed/uiu_luY5lzY',
+            'https://www.youtube.com/embed/nEbCYCAajio',
+            'https://www.youtube.com/embed/XGs8mTC-rI4',
+            'https://www.youtube.com/embed/624I93z0N0A',
+            'https://www.youtube.com/embed/XFpMdeZ1Uhk'
+        ],
     },
     'jilid-2': {
         title: 'Durusullughah Jilid 2',
         description:
             "Melanjutkan pemahaman tata bahasa Arab dengan fokus pada kata kerja (Fi'il), perubahan bentuk kata (Shorof), dan kosa kata yang lebih luas.",
-        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
+        ytLink: [
+            'https://www.youtube.com/embed/uiu_luY5lzY'
+        ],
     },
     'jilid-3': {
         title: 'Durusullughah Jilid 3',
         description:
             'Memasuki tahap menengah di mana santri mulai belajar menganalisis kalimat yang lebih panjang dan teks-teks literatur Arab dasar.',
-        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
+        ytLink: ['https://www.youtube.com/embed/8e5Nmpy8Zmw'],
     },
     'jilid-4': {
         title: 'Durusullughah Jilid 4',
         description:
             'Tahap lanjut yang mempersiapkan santri untuk memahami teks-teks klasik, kitab tafsir, dan dasar-dasar ilmu Balaghah.',
-        ytLink: 'https://www.youtube.com/embed/8e5Nmpy8Zmw',
+        ytLink: ['https://www.youtube.com/embed/8e5Nmpy8Zmw'],
     },
 };
 
@@ -73,12 +81,15 @@ if (!lesson) {
             <!-- Main Content -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Video Container -->
-                <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
-                    <div class="aspect-video">
-                        <iframe class="w-full h-full" src={lesson.ytLink} allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
+                {
+                    lesson.ytLink.map((link) => (
+                        <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
+                            <div class="aspect-video">
+                                <iframe class="w-full h-full" src={link} allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    ))
+                }
 
                 <!-- Description -->
                 <div class="bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-gray-100">
