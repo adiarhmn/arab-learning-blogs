@@ -19,28 +19,24 @@ const lessons = {
         description:
             'Pelajari dasar-dasar bahasa Arab dari nol. Jilid ini fokus pada pengenalan kata benda (Isim), kata tunjuk, dan struktur kalimat sederhana yang digunakan sehari-hari.',
         youtubeId: '8e5Nmpy8Zmw',
-        topics: ['Isim Isyarah (Haza, Hazalah)', 'Dhamir Munfasil', 'Huruf Jar', 'Idhafah (Mudaaf & Mudaaf Ilaih)'],
     },
     'jilid-2': {
         title: 'Durusullughah Jilid 2',
         description:
             "Melanjutkan pemahaman tata bahasa Arab dengan fokus pada kata kerja (Fi'il), perubahan bentuk kata (Shorof), dan kosa kata yang lebih luas.",
         youtubeId: '8e5Nmpy8Zmw',
-        topics: ["Fi'il Maadi & Mudhari", 'Tasrif Lughawi', 'Isim Maushul', 'Adawatul Istifham'],
     },
     'jilid-3': {
         title: 'Durusullughah Jilid 3',
         description:
             'Memasuki tahap menengah di mana santri mulai belajar menganalisis kalimat yang lebih panjang dan teks-teks literatur Arab dasar.',
         youtubeId: '8e5Nmpy8Zmw',
-        topics: ['Inna wa Akhwatuha', 'Kana wa Akhwatuha', "Na'at & Man'ut", "Adad & Ma'dud"],
     },
     'jilid-4': {
         title: 'Durusullughah Jilid 4',
         description:
             'Tahap lanjut yang mempersiapkan santri untuk memahami teks-teks klasik, kitab tafsir, dan dasar-dasar ilmu Balaghah.',
         youtubeId: '8e5Nmpy8Zmw',
-        topics: ['Manshubatul Asma', 'Majruuratul Asma', "Tawabi'", 'Mustatsna'],
     },
 };
 
@@ -56,7 +52,7 @@ if (!lesson) {
         <!-- Breadcrumbs & Header -->
         <header class="bg-white border-b border-gray-100 py-8 lg:py-12 mb-8">
             <div class="container mx-auto px-6">
-                <nav class="flex text-sm font-medium text-gray-500 mb-4 items-center gap-10">
+                <nav class="flex text-sm font-medium text-gray-500 mb-4 items-center gap-2">
                     <a href="/" class="hover:text-[#065f46]">Home</a>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
@@ -69,13 +65,13 @@ if (!lesson) {
                     >
                     <span class="text-[#065f46]">{lesson.title}</span>
                 </nav>
-                <h1 class="text-3xl lg:text-4xl font-bold text-gray-900">{lesson.title}</h1>
+                <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 font-aref-ruqaa">{lesson.title}</h1>
             </div>
         </header>
 
         <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-5">
             <!-- Main Content -->
-            <div class="lg:col-span-2 space-y-8 ">
+            <div class="lg:col-span-2 space-y-8">
                 <!-- Video Container -->
                 <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
                     <div class="aspect-video">
@@ -90,32 +86,6 @@ if (!lesson) {
                     <p class="text-gray-600 leading-relaxed text-lg mb-8">
                         {lesson.description}
                     </p>
-
-                    <hr class="border-gray-50 mb-8" />
-
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Topik Utama</h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {
-                            lesson.topics.map((topic) => (
-                                <li class="flex items-center gap-3 text-gray-600 bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                    <svg
-                                        class="w-5 h-5 text-emerald-500 flex-shrink-0"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                    <span class="font-medium">{topic}</span>
-                                </li>
-                            ))
-                        }
-                    </ul>
                 </div>
             </div>
 

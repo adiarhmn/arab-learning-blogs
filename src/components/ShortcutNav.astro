@@ -1,66 +1,83 @@
 ---
 const categories = [
-  {
-    title: 'Durusullughah',
-    items: [
-      { label: 'Jilid 1', href: '/durusullughah/jilid-1', icon: '1' },
-      { label: 'Jilid 2', href: '/durusullughah/jilid-2', icon: '2' },
-      { label: 'Jilid 3', href: '/durusullughah/jilid-3', icon: '3' },
-      { label: 'Jilid 4', href: '/durusullughah/jilid-4', icon: '4' },
-    ]
-  },
-  {
-    title: 'Jurmiyyah',
-    items: [
-      { label: 'Matan Jurmiyyah', href: '/jurmiyyah/matan', icon: 'M' },
-      { label: 'Tuhfatus Saniyah', href: '/jurmiyyah/tuhfatus-saniyah', icon: 'T' },
-    ]
-  }
+    {
+        title: 'Durusullughah',
+        items: [
+            { label: 'Jilid 1', href: '/durusullughah/jilid-1', icon: '1' },
+            { label: 'Jilid 2', href: '/durusullughah/jilid-2', icon: '2' },
+            { label: 'Jilid 3', href: '/durusullughah/jilid-3', icon: '3' },
+            { label: 'Jilid 4', href: '/durusullughah/jilid-4', icon: '4' },
+        ],
+    },
+    {
+        title: 'Jurmiyyah',
+        items: [
+            { label: 'Matan Jurmiyyah', href: '/jurmiyyah/matan', icon: 'M' },
+            { label: 'Tuhfatus Saniyah', href: '/jurmiyyah/tuhfatus-saniyah', icon: 'T' },
+            { label: 'Al Mumti', href: '/jurmiyyah/al-mumti', icon: 'A' },
+            { label: 'Mutammimah', href: '/jurmiyyah/mutammimah', icon: 'MU' },
+        ],
+    },
+    {
+        title: 'Al-Arabiyyah Baina Yadaik (ABY)',
+        items: [
+            { label: 'ABY 1 A', href: '/aby/aby-1-a', icon: '1A' },
+            { label: 'ABY 1 B', href: '/aby/aby-1-b', icon: '1B' },
+            { label: 'ABY 2 A', href: '/aby/aby-2-a', icon: '2A' },
+            { label: 'ABY 2 B', href: '/aby/aby-2-b', icon: '2B' },
+        ],
+    },
 ];
 ---
 
 <section class="py-20 bg-slate-50" id="belajar">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <h2 class="text-3xl font-bold text-slate-900 mb-2">Akses Cepat Materi</h2>
-        <p class="text-slate-500">Pilih materi yang ingin Anda pelajari hari ini.</p>
-      </div>
-      <div class="flex gap-2">
-         <span class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
-           <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-           6 Materi Tersedia
-         </span>
-      </div>
-    </div>
-
-    <div class="space-y-12">
-      {categories.map((cat) => (
-        <div>
-          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
-            {cat.title}
-            <div class="h-px bg-slate-200 flex-grow"></div>
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {cat.items.map((item) => (
-              <a 
-                href={item.href}
-                class="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-500/30 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 bg-slate-50 text-slate-400 font-bold text-xl flex items-center justify-center rounded-xl group-hover:bg-[#065f46] group-hover:text-white transition-colors">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-slate-900 group-hover:text-[#065f46] transition-colors">{item.label}</h4>
-                    <span class="text-xs text-slate-400">Buka Modul &rarr;</span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Akses Cepat Materi</h2>
+                <p class="text-slate-500">Pilih materi yang ingin Anda pelajari hari ini.</p>
+            </div>
+            <div class="flex gap-2">
+                <span
+                    class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100"
+                >
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    12 Materi Tersedia
+                </span>
+            </div>
         </div>
-      ))}
+
+        <div class="space-y-12">
+            {
+                categories.map((cat) => (
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
+                            {cat.title}
+                            <div class="h-px bg-slate-200 flex-grow" />
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            {cat.items.map((item) => (
+                                <a
+                                    href={item.href}
+                                    class="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-500/30 hover:-translate-y-1 transition-all duration-300"
+                                >
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 bg-slate-50 text-slate-400 font-bold text-xl flex items-center justify-center rounded-xl group-hover:bg-[#065f46] group-hover:text-white transition-colors">
+                                            {item.icon}
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold font-aref-ruqaa text-slate-900 group-hover:text-[#065f46] transition-colors">
+                                                {item.label}
+                                            </h4>
+                                            <span class="text-xs text-slate-400">Buka Modul &rarr;</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </section>
