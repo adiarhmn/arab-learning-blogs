@@ -22,7 +22,7 @@ The system uses a recursive navigation hierarchy to handle multiple curriculum l
       - Jilid 1, 2, 3, 4
     - **Jurmiyyah**
       - Matan Jurmiyyah
-      - Tuhfatus Saniyah
+      - Tuhfatus Saniyyah
   - **Tafsir**
   - **Tentang Fuad**
 
