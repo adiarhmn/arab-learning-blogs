@@ -17,22 +17,52 @@ const lessons = {
     'matan': {
         title: 'Matan Al-Jurmiyyah',
         description: 'Kitab dasar dalam ilmu Nahwu yang sangat populer. Mempelajari kaidah-kaidah dasar bahasa Arab secara ringkas namun padat.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLinks: ['https://www.youtube.com/embed/8e5Nmpy8Zmw'],
     },
     'tuhfatus-saniyah': {
         title: 'Tuhfatus Saniyah',
         description: 'Syarah (penjelasan) dari Matan Al-Jurmiyyah yang lebih mendalam, memudahkan santri memahami setiap kaidah dengan contoh yang relevan.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLinks: [
+            'https://www.youtube.com/embed/bUUdKu-o0Yk',
+            'https://www.youtube.com/embed/eeMic05XhIY',
+            'https://www.youtube.com/embed/ZztOG1ZQRUw',
+            'https://www.youtube.com/embed/o5IkC-TV7UE',
+            'https://www.youtube.com/embed/SQWAl1SYw6M',
+            'https://www.youtube.com/embed/yqoyN4ClDwo',
+            'https://www.youtube.com/embed/xfyaaJigIWc',
+            'https://www.youtube.com/embed/GbaNRJU5cpU',
+            'https://www.youtube.com/embed/dCjDz9u1zwM',
+            'https://www.youtube.com/embed/wblN0SPF3kI',
+            'https://www.youtube.com/embed/3E9GxBfVJpU',
+            'https://www.youtube.com/embed/aauENT0u1HU',
+            'https://www.youtube.com/embed/A7HNyac1Og4',
+            'https://www.youtube.com/embed/RF6cMK17DW4',
+            'https://www.youtube.com/embed/eGCRc_HVBqo',
+            'https://www.youtube.com/embed/tvNNxoFN_Rc',
+            'https://www.youtube.com/embed/rh0VOeTzWx0',
+            'https://www.youtube.com/embed/7tBa2hbot1s',
+            'https://www.youtube.com/embed/OriiwjmIEFg',
+            'https://www.youtube.com/embed/IIxAsq-kFhk',
+            'https://www.youtube.com/embed/F4QKazK506k',
+            'https://www.youtube.com/embed/C-nM6Oiv_gI',
+            'https://www.youtube.com/embed/Vg3ixkMLzPg',
+            'https://www.youtube.com/embed/tWr9cuRfews',
+            'https://www.youtube.com/embed/V28LjdI_HpQ',
+            'https://www.youtube.com/embed/4L4AxPKvxiI',
+            'https://www.youtube.com/embed/ZLEgHuhE2zc',
+            'https://www.youtube.com/embed/EVtFOmZsVj0',
+            'https://www.youtube.com/embed/zNKnjo9kFO4'
+        ],
     },
     'al-mumti': {
         title: 'Al Mumti\'',
         description: 'Syarah Matan Al-Jurmiyyah kontemporer yang disusun dengan bahasa yang lebih mudah dipahami oleh pelajar masa kini.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLinks: ['https://www.youtube.com/embed/8e5Nmpy8Zmw'],
     },
     'mutammimah': {
         title: 'Mutammimah Al-Jurmiyyah',
         description: 'Kitab lanjutan yang melengkapi pembahasan Matan Al-Jurmiyyah, mencakup bab-bab Nahwu yang lebih kompleks.',
-        youtubeId: '8e5Nmpy8Zmw',
+        ytLinks: ['https://www.youtube.com/embed/8e5Nmpy8Zmw'],
     },
 };
 
@@ -60,11 +90,15 @@ if (!lesson) {
 
         <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2 space-y-8">
-                <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
-                    <div class="aspect-video">
-                        <iframe class="w-full h-full" src={`https://www.youtube.com/embed/${lesson.youtubeId}`} allowfullscreen></iframe>
-                    </div>
-                </div>
+                {
+                    lesson.ytLinks.map((link) => (
+                        <div class="bg-black rounded-3xl overflow-hidden shadow-2xl relative group">
+                            <div class="aspect-video">
+                                <iframe class="w-full h-full" src={link} allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    ))
+                }
 
                 <div class="bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-gray-100">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Tentang Pelajaran Ini</h2>
@@ -75,6 +109,9 @@ if (!lesson) {
             <div class="space-y-6">
                 <div class="bg-[#065f46] p-8 rounded-3xl text-white shadow-xl shadow-emerald-900/10">
                     <h3 class="text-xl font-bold mb-4">Navigasi Jurmiyyah</h3>
+                    <p class="text-emerald-100/80 mb-6 text-sm">
+                        Gunakan tombol di bawah untuk berpindah antar kitab Jurmiyyah dengan cepat.
+                    </p>
                     <div class="space-y-3">
                         {Object.keys(lessons).map((s) => (
                             <a
@@ -85,6 +122,25 @@ if (!lesson) {
                             </a>
                         ))}
                     </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-gold-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                            ></path></svg
+                        >
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Butuh Bantuan?</h4>
+                    <p class="text-sm text-gray-500 mb-6">
+                        Jika Anda mengalami kesulitan memahami materi, silakan hubungi pengajar atau akses forum diskusi
+                        santri.
+                    </p>
+                    <Button variant="outline" class="w-full text-sm py-2"> Hubungi Pengajar </Button>
                 </div>
             </div>
         </div>
