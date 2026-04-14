@@ -4,9 +4,13 @@ import Navbar from "../components/navigation/Navbar.astro";
 
 interface Props {
 	title?: string;
+	isLandingPage?: boolean;
 }
 
-const { title = "Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman" } = Astro.props;
+const { 
+	title = "Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman",
+	isLandingPage = false
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -18,9 +22,12 @@ const { title = "Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman" } = Astro.pro
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-white text-gray-900 antialiased">
-		<Navbar />
-		<main>
+	<body class:list={[
+		"text-gray-900 antialiased",
+		isLandingPage ? "bg-transparent" : "bg-white"
+	]}>
+		<Navbar isLandingPage={isLandingPage} />
+		<main class:list={[!isLandingPage && "pt-20"]}>
 			<slot />
 		</main>
 	</body>

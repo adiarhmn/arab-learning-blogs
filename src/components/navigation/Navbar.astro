@@ -51,11 +51,26 @@ const navItems: NavItems = [
     { label: 'Tentang Fuad', href: '/about', variant: 'button' },
 ];
 
+const { isLandingPage = false } = Astro.props;
+
 console.log(SITE);
 ---
 
-<nav class="sticky top-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100">
-    <div class="container mx-auto px-6 h-20 flex justify-between items-center relative z-[110] bg-white">
+<nav 
+    id="main-nav" 
+    data-is-landing={isLandingPage.toString()}
+    class:list={[
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
+        isLandingPage ? "bg-transparent border-transparent" : "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+    ]}
+>
+    <div 
+        id="nav-container"
+        class:list={[
+            "container mx-auto px-6 h-20 flex justify-between items-center relative z-[110] transition-all duration-500",
+            isLandingPage ? "bg-transparent" : "bg-white"
+        ]}
+    >
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 group">
             <img class="w-10 h-10 rounded-lg" src={SITE + 'logo.png'} alt="Logo" />
@@ -268,6 +283,31 @@ console.log(SITE);
         }
     }
 
+    function handleScroll() {
+        const mainNav = document.getElementById('main-nav');
+        const navContainer = document.getElementById('nav-container');
+        const isLanding = mainNav?.getAttribute('data-is-landing') === 'true';
+
+        if (isLanding && mainNav && navContainer) {
+            if (window.scrollY > 50) {
+                mainNav.classList.remove('bg-transparent', 'border-transparent');
+                mainNav.classList.add('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'shadow-sm');
+                navContainer.classList.remove('bg-transparent');
+                navContainer.classList.add('bg-white');
+            } else {
+                mainNav.classList.add('bg-transparent', 'border-transparent');
+                mainNav.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'shadow-sm');
+                navContainer.classList.add('bg-transparent');
+                navContainer.classList.remove('bg-white');
+            }
+        }
+    }
+
     initNav();
-    document.addEventListener('astro:after-swap', initNav);
+    window.addEventListener('scroll', handleScroll);
+    
+    document.addEventListener('astro:after-swap', () => {
+        initNav();
+        handleScroll();
+    });
 </script>
