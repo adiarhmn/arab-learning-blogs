@@ -5,15 +5,19 @@ import ShortcutNav from '../components/ShortcutNav.astro';
 ---
 
 <Layout title="Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman" isLandingPage={true}>
-	<!-- Fixed Full-Screen Background -->
-	<div class="fixed inset-0 -z-10 bg-cover bg-left bg-no-repeat w-full h-full overflow-hidden" style="background-image: url('/background/bg-kitab-landscape.png');">
-		<!-- Main White Overlay for consistent readability -->
-		<div class="absolute inset-0 bg-white/50 backdrop-blur-[2px]"></div>
-	</div>
-	
-	<!-- Scrollable Content -->
-	<div class="relative z-10">
-		<Hero />
-		<ShortcutNav />
-	</div>
+    <!-- Fixed Full-Screen Background -->
+    <div
+        class="fixed inset-0 -z-10 bg-cover bg-left bg-no-repeat w-full h-full overflow-hidden"
+        style="background-image: url('/background/bg-kitab-landscape.png');"
+    >
+        <!-- Main White Overlay for consistent readability -->
+        <div class="absolute inset-0 bg-white/50 backdrop-blur-[2px]"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-100 bg-linear-to-t from-emerald-500 to-transparent"></div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="relative z-10">
+        <Hero />
+        <ShortcutNav />
+    </div>
 </Layout>
