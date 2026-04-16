@@ -1,7 +1,7 @@
 # GEMINI.md
 
 ## Project Overview
-**Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman** is a specialized learning management system designed to streamline the study of Arabic and Tafsir for **santri** (students). The project focuses on converting complex, deeply nested educational content into a frictionless digital experience.
+**Pembelajaran Bahasa Arab & Tafsir by Fuad Rahman** is a specialized learning management system designed to streamline the study of Arabic and Tafsir for beginners. The project focuses on converting complex, deeply nested educational content into a frictionless digital experience.
 
 ### Core Objectives
 - **Frictionless Learning:** Ensure students spend more time studying and less time navigating.
